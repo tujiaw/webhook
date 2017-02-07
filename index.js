@@ -16,20 +16,21 @@ function RunCmd(cmd, args, cb) {
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
-    res.statusCode = 404
-    res.end('no such location')
+    res.statusCode = 404;
+    res.end('no such location');
   })
 }).listen(3333)
 
 handler.on('error', function (err) {
-  console.error('Error:', err.message)
+  console.error('Error:', err.message);
 })
 
 handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
-    event.payload.ref)
-  RunCmd('sh', ['./nodeblog.sh'], function(result) {
+    event.payload.ref);
+  var shpath = './' + event.payload.repository.name + '.sh';
+  RunCmd('sh', [shpath], function(result) {
       console.log(result);
   })
 })
@@ -39,5 +40,5 @@ handler.on('issues', function (event) {
     event.payload.repository.name,
     event.payload.action,
     event.payload.issue.number,
-    event.payload.issue.title)
+    event.payload.issue.title);
 })
