@@ -8,7 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node index.js"
+    "test": "node ./index.js",
+    "start": "pm2 start ./index.js -name 'webhook'"
   },
   "repository": {
     "type": "git",
