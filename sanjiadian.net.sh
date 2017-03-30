@@ -1,4 +1,4 @@
-PRO_DIR="/root/sanjiadian"
+PRO_DIR="/root/sanjiadian.net"
 echo "start--------------------"
 cd $PRO_DIR
 echo "pull git code"
