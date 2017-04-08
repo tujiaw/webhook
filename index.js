@@ -4,7 +4,8 @@ var createHandler = require('node-github-webhook')
 var handler = createHandler([ // multiple handlers
   { path: '/nodeblog', secret: '123456' },
   { path: '/koablogdemo', secret: '123456' },
-  { path: '/sanjiadian', secret: '123456' }
+  { path: '/sanjiadian', secret: '123456' },
+  { path: '/NodeChat', secret: '123456' },
 ])
 // var handler = createHandler({ path: '/webhook1', secret: 'secret1' }) // single handler
 
